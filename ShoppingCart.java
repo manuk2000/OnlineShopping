@@ -1,45 +1,50 @@
-// import java.util.ArrayList;
+import java.util.ArrayList;
 
-// public class ShoppingCart {
-//     private Buyer owner;
-//     private ArrayList<ShoppingCartItem> itemses = new ArrayList<>();
+public class ShoppingCart {
 
-//     // public ShoppingCart(Buyer owner){
-//     //     this.owner = owner;
-//     // }
+  private Buyer owner;
+  private ArrayList<ShoppingCartItem> itemses = new ArrayList<>();
 
-//     public Buyer getOwner() {
-//         return owner;
-//     }
+  public ShoppingCart(Buyer owner) {
+    this.owner = owner;
+  }
 
-//     public void addItem(ShoppingCartItem item) {
-//         for (ShoppingCartItem element : itemses) {
-//             if (element.getProduct().equals(item.getProduct())) {
-//                 element.addQuantity(1);
-//                 return;
-//             }
-//         }
-//         this.itemses.add(item);
-//     }
+  public Buyer getOwner() {
+    return owner;
+  }
 
-//     public boolean removeItem(ShoppingCartItem item) {
-//         return itemses.remove(item);
-//     }
+  public void addItem(ShoppingCartItem item) {
+    for (ShoppingCartItem element : itemses) {
+      if (element.getProduct().equals(item.getProduct())) {
+        element.addQuantity(1);
+        return;
+      }
+    }
+    this.itemses.add(item);
+  }
 
-//     public void addItemQuantity(ShoppingCartItem item, int incrementCountQuantity) {
-//         itemses.get(itemses.indexOf(item)).addQuantity(incrementCountQuantity);
-//     }
+  public boolean removeItem(ShoppingCartItem item) {
+    return itemses.remove(item);
+  }
 
-//     public int getTotalPrice() {
-//         int res = 0;
-//         for (ShoppingCartItem shoppingCartItem : itemses) {
-//             res += shoppingCartItem.getProduct().getPrice() * shoppingCartItem.getQuantity();
-//         }
-//         return res;
-//     }
+  public void addItemQuantity(
+    ShoppingCartItem item,
+    int incrementCountQuantity
+  ) {
+    itemses.get(itemses.indexOf(item)).addQuantity(incrementCountQuantity);
+  }
 
-//     public void emptyCart() {
-//         itemses = new ArrayList<>();
-//     }
+  public int getTotalPrice() {
+    int res = 0;
+    for (ShoppingCartItem shoppingCartItem : itemses) {
+      res +=
+        shoppingCartItem.getProduct().getPrice() *
+        shoppingCartItem.getQuantity();
+    }
+    return res;
+  }
 
-// }
+  public void emptyCart() {
+    itemses = new ArrayList<>();
+  }
+}
